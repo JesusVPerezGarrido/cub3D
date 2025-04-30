@@ -6,7 +6,7 @@
 /*   By: jeperez- <jeperez-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/10 12:14:25 by jeperez-          #+#    #+#             */
-/*   Updated: 2025/03/24 19:13:24 by jeperez-         ###   ########.fr       */
+/*   Updated: 2025/04/30 11:08:52 by jeperez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <stdarg.h>
-
+# include <fcntl.h>
 //= STRUCTS =//
 
 /*
@@ -39,8 +39,8 @@ typedef unsigned char	t_byte;
 
 typedef enum e_bool
 {
-	false,
-	true,
+	ft_false,
+	ft_true,
 }	t_bool;
 
 //= Character Functions =//

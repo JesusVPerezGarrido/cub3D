@@ -1,24 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_fprintf.c                                       :+:      :+:    :+:   */
+/*   angles.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jeperez- <jeperez-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/28 13:02:47 by jeperez-          #+#    #+#             */
-/*   Updated: 2025/04/28 12:14:48 by jeperez-         ###   ########.fr       */
+/*   Created: 2025/04/11 12:52:05 by jeperez-          #+#    #+#             */
+/*   Updated: 2025/04/28 11:00:26 by jeperez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf_int.h"
+#include "angles.h"
 
-ssize_t	ft_fprintf(int fd, char const *str, ...)
+t_deg	rtod(t_rad rad)
 {
-	va_list	lst;
-	ssize_t	length;
+	t_deg	value;
 
-	va_start(lst, str);
-	length = ft_print_variadic(str, lst, fd);
-	va_end(lst);
-	return (length);
+	value = rad * 180 / PI;
+	if (value >= (360))
+		value -= 360;
+	return (value);
+}
+
+t_rad	dtor(t_deg deg)
+{
+	t_rad	value;
+
+	value = deg * PI / 180;
+	if (value >= (2 * PI))
+		value -= 2 * PI;
+	return (value);
+}
+
+t_vector	rtov(t_rad	r)
+{
+	t_vector	value;
+
+	value.x = cos(r);
+	value.y = sin(r);
+	return (value);
 }

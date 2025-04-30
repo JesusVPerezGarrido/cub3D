@@ -1,24 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_fprintf.c                                       :+:      :+:    :+:   */
+/*   angles.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jeperez- <jeperez-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/28 13:02:47 by jeperez-          #+#    #+#             */
-/*   Updated: 2025/04/28 12:14:48 by jeperez-         ###   ########.fr       */
+/*   Created: 2025/04/11 12:32:07 by jeperez-          #+#    #+#             */
+/*   Updated: 2025/04/28 11:21:44 by jeperez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf_int.h"
+#ifndef ANGLES_H
+# define ANGLES_H
 
-ssize_t	ft_fprintf(int fd, char const *str, ...)
-{
-	va_list	lst;
-	ssize_t	length;
+# include "vector.h"
 
-	va_start(lst, str);
-	length = ft_print_variadic(str, lst, fd);
-	va_end(lst);
-	return (length);
-}
+# define PI 3.1415926535897932
+
+typedef double	t_deg;
+typedef double	t_rad;
+
+t_deg		rtod(t_rad rad);
+t_rad		dtor(t_deg deg);
+t_vector	rtov(t_rad	r);
+
+#endif

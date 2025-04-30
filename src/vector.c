@@ -1,24 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_fprintf.c                                       :+:      :+:    :+:   */
+/*   vector.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jeperez- <jeperez-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/28 13:02:47 by jeperez-          #+#    #+#             */
-/*   Updated: 2025/04/28 12:14:48 by jeperez-         ###   ########.fr       */
+/*   Created: 2025/04/11 12:19:07 by jeperez-          #+#    #+#             */
+/*   Updated: 2025/04/28 11:19:57 by jeperez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf_int.h"
+#include "vector.h"
 
-ssize_t	ft_fprintf(int fd, char const *str, ...)
+t_vector	set_vector(double x, double y)
 {
-	va_list	lst;
-	ssize_t	length;
+	t_vector	value;
 
-	va_start(lst, str);
-	length = ft_print_variadic(str, lst, fd);
-	va_end(lst);
-	return (length);
+	value.x = x;
+	value.y = y;
+	return (value);
 }

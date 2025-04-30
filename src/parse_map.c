@@ -6,7 +6,7 @@
 /*   By: jeperez- <jeperez-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/30 10:36:58 by jeperez-          #+#    #+#             */
-/*   Updated: 2025/04/30 11:21:45 by jeperez-         ###   ########.fr       */
+/*   Updated: 2025/04/30 11:57:39 by jeperez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ void	clear_map(t_map *map)
 		map->texture[index] = NULL;
 		index++;
 	}
+	map->floor = 0;
+	map->ceil = 0;
 	map->height = 0;
 	map->width = 0;
 	map->map = 0;
@@ -29,12 +31,7 @@ void	clear_map(t_map *map)
 	map->player.dir = set_vector(0, 0);
 }
 
-void	parse_line(t_map *map, char *line)
-{
-	
-}
-
-void	parse_map(t_map *map, char *filepath)
+void	parse_file(t_map *map, char *filepath)
 {
 	int		fd;
 	char	*line;
@@ -50,6 +47,7 @@ void	parse_map(t_map *map, char *filepath)
 	while (line)
 	{
 		parse_line(map, line);
+		free(line);
 		line = get_next_line(fd);
 	}
 }

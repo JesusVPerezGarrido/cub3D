@@ -6,7 +6,7 @@
 /*   By: auloth <spotlightcronik@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/25 15:09:54 by jeperez-          #+#    #+#             */
-/*   Updated: 2025/04/30 13:46:21 by auloth           ###   ########.fr       */
+/*   Updated: 2025/04/30 13:07:41 by auloth           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 # include "MLX42.h"
 # include "libft.h"
 # include "vector.h"
-# include "color.h"
 
 typedef uint32_t	t_color;
 
@@ -31,6 +30,8 @@ typedef struct s_map
 	mlx_texture_t	*texture[4];
 	t_color			floor;
 	t_color			ceil;
+	int				height;
+	int				width;
 	char			**map;
 	t_player		player;
 }					t_map;

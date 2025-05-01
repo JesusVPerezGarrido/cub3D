@@ -4,10 +4,13 @@ CC			:=	cc
 CFLAGS		:=	-Wall -Wextra -Werror -g
 
 FILES		:=	main.c \
-				parse_map.c \
+				cub_start.c \
+				hook.c \
 				angles.c \
 				raycast.c \
-				vector.c
+				vector.c \
+				color.c \
+				draw.c
 SRCS		:=	$(addprefix src/, $(FILES))
 OBJS		:=	$(addprefix obj/, $(FILES:.c=.o))
 
@@ -19,13 +22,14 @@ MLX42DIR	:=	lib/MLX42
 MLX42INC	:=	$(MLX42DIR)/include/MLX42
 MLX42		:=	$(MLX42DIR)/build/libmlx42.a
 
-LIBS		:=	$(LIBFT) $(MLX42) -lm
+LIBS		:=	$(LIBFT) $(MLX42) -lm -lglfw
 
 INCS		:=	-Iinc -I$(LIBFTINC) -I$(MLX42INC)
 HEADERS		:=	inc/cub3D.h \
 				inc/angles.h \
 				inc/raycast.h \
 				inc/vector.h \
+				inc/color.h \
 				$(LIBFTINC)/libft.h \
 				$(MLX42INC)/MLX42.h
 

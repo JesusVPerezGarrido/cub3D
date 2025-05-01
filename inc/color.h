@@ -1,37 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   raycast.h                                          :+:      :+:    :+:   */
+/*   color.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jeperez- <jeperez-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/11 12:24:07 by jeperez-          #+#    #+#             */
-/*   Updated: 2025/04/30 16:03:32 by jeperez-         ###   ########.fr       */
+/*   Created: 2025/04/30 12:52:05 by jeperez-          #+#    #+#             */
+/*   Updated: 2025/04/30 12:59:01 by jeperez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef RAYCAST_H
-# define RAYCAST_H
+#ifndef COLOR_H
+# define COLOR_H
 
-# include <math.h>
-# include "angles.h"
-# include "vector.h"
+typedef unsigned int	t_color;
 
-# include <stdio.h>
-
-typedef struct s_raycast
-{
-	t_vector	pos;
-	t_vector	dir;
-	t_vector	side_dist;
-	t_vector	delta_dist;
-	double		wall_dist;
-	t_vector	step;
-	int			hit;
-	int			side;
-}	t_raycast;
-
-t_raycast	raycast_init(t_vector init_pos, t_vector direction);
-void		raycast_loop(t_raycast *ray, char **world_map);
+t_color	set_color(int r, int g, int b, int a);
 
 #endif

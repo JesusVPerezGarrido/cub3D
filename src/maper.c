@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   maper.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: auloth <spotlightcronik@gmail.com>         +#+  +:+       +#+        */
+/*   By: jeperez- <jeperez-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/30 15:17:59 by auloth            #+#    #+#             */
-/*   Updated: 2025/05/02 12:52:55 by auloth           ###   ########.fr       */
+/*   Updated: 2025/05/02 15:56:44 by jeperez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,8 +80,7 @@ int	find_player(t_map *map)
 {
 	int	y;
 	int	x;
-	int pcount;
-
+	int	pcount;
 
 	pcount = 0;
 	y = 0;
@@ -99,7 +98,7 @@ int	find_player(t_map *map)
 		}
 		y++;
 	}
-	if(pcount == 1)
-		return(0);
+	if (pcount == 1)
+		return (0);
 	return (1);
 }

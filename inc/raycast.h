@@ -6,7 +6,7 @@
 /*   By: jeperez- <jeperez-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/11 12:24:07 by jeperez-          #+#    #+#             */
-/*   Updated: 2025/04/28 11:20:51 by jeperez-         ###   ########.fr       */
+/*   Updated: 2025/04/30 16:03:32 by jeperez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@
 
 typedef struct s_raycast
 {
-	t_vector	init_pos;
 	t_vector	pos;
 	t_vector	dir;
 	t_vector	side_dist;
@@ -33,7 +32,6 @@ typedef struct s_raycast
 }	t_raycast;
 
 t_raycast	raycast_init(t_vector init_pos, t_vector direction);
-void		raycast_loop(t_raycast *ray, int **world_map);
-void		raycast_print(t_raycast ray);
+void		raycast_loop(t_raycast *ray, char **world_map);
 
 #endif

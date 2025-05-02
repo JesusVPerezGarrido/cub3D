@@ -6,7 +6,7 @@
 /*   By: jeperez- <jeperez-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/11 12:24:16 by jeperez-          #+#    #+#             */
-/*   Updated: 2025/04/28 11:24:44 by jeperez-         ###   ########.fr       */
+/*   Updated: 2025/04/30 16:23:21 by jeperez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,17 +49,16 @@ t_raycast	raycast_init(t_vector init_pos, t_vector direction)
 {
 	t_raycast	value;
 
-	value.init_pos = init_pos;
 	value.pos = init_pos;
 	value.dir = direction;
-	value.delta_dist = set_vector(fabs(1 / direction.x), fabs(1 / direction.y));
+	value.delta_dist = set_vector(fabs(1 / value.dir.x), fabs(1 / direction.y));
 	raycast_init_direction(&value);
 	value.hit = 0;
 	value.side = -1;
 	return (value);
 }
 
-void	raycast_loop(t_raycast *ray, int **world_map)
+void	raycast_loop(t_raycast *ray, char **world_map)
 {
 	while (ray->hit == 0)
 	{
@@ -75,7 +74,7 @@ void	raycast_loop(t_raycast *ray, int **world_map)
 			ray->pos.y += ray->step.y;
 			ray->side = 1;
 		}
-		if (world_map[(int)ray->pos.x][(int)ray->pos.y] != 0)
+		if (world_map[(int)ray->pos.x][(int)ray->pos.y] != '0')
 			ray->hit = 1;
 	}
 	if (ray->side == 0)

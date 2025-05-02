@@ -6,7 +6,7 @@
 /*   By: jeperez- <jeperez-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/30 13:14:37 by jeperez-          #+#    #+#             */
-/*   Updated: 2025/05/02 14:00:56 by jeperez-         ###   ########.fr       */
+/*   Updated: 2025/05/02 15:47:24 by jeperez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,8 @@ static void	mlx_start(t_cub3d *cub)
 
 static void	clean(t_cub3d *cub)
 {
-	int i;
-	
+	int	i;
+
 	i = 0;
 	while (i < 4)
 	{

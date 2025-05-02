@@ -10,6 +10,7 @@ FILES		:=	angles.c \
 				draw_utils.c \
 				extra_func.c \
 				hook.c \
+				key_handler.c \
 				main.c \
 				maper.c \
 				parse_map.c \
@@ -41,7 +42,7 @@ mlx:
 	cmake $(MLXDIR) -B $(MLXDIR)/build && make -C $(MLXDIR)/build -j4
 
 dir:
-	-mkdir obj
+	-mkdir -p obj
 
 clean:
 	-rm -r obj

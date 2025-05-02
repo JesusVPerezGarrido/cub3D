@@ -6,7 +6,7 @@
 /*   By: jeperez- <jeperez-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/25 15:09:54 by jeperez-          #+#    #+#             */
-/*   Updated: 2025/05/02 13:58:08 by jeperez-         ###   ########.fr       */
+/*   Updated: 2025/05/02 15:49:17 by jeperez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 
 # define SCREEN_WIDTH 1920
 # define SCREEN_HEIGHT 1080
-# define MV_SPD 0.1
-# define TN_SPD 0.05
+# define MV_SPD 3.5
+# define TN_SPD 1.5
 
 # include "MLX42.h"
 # include "libft.h"
@@ -48,12 +48,19 @@ typedef struct s_cub3d
 	mlx_image_t	*walls;
 }				t_cub3d;
 
+//parse_map.c
 int		parse_file(t_map *map, char *filepath);
 
+// cub_start.c
 void	cub_start(t_cub3d *cub);
 
+//hook.c
 void	loop_hook(void *param);
 
+//key_handler.c
+void	key_handler(t_cub3d *cub);
+
+// draw.c
 void	draw_frame(t_cub3d *cub);
 
 // draw_utils.c

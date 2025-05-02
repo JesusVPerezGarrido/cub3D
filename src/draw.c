@@ -6,47 +6,79 @@
 /*   By: jeperez- <jeperez-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/30 13:25:44 by jeperez-          #+#    #+#             */
-/*   Updated: 2025/05/01 10:30:35 by jeperez-         ###   ########.fr       */
+/*   Updated: 2025/05/02 10:10:20 by jeperez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3D.h"
 
-void	draw_square(mlx_image_t *img, t_vector start, t_vector end, t_color c)
+t_vector	get_draw_length(t_raycast ray)
 {
-	int	x;
-	int	y;
+	int			line_height;
+	t_vector	draw;
 
-	x = start.x;
-	while (x < end.x)
+	line_height = (int)(SCREEN_HEIGHT / ray.wall_dist);
+	draw.x = (SCREEN_HEIGHT - line_height) / 2;
+	draw.y = (line_height + SCREEN_HEIGHT) / 2;
+	return (draw);
+}
+
+double	get_wall_x(t_raycast ray, mlx_texture_t *t)
+{
+	double	wallx;
+	int		tx;
+
+	if (ray.side == 0)
+		wallx = ray.pos.y + ray.wall_dist * ray.dir.y;
+	else
+		wallx = ray.pos.x + ray.wall_dist * ray.dir.x;
+	wallx -= (int)wallx;
+	tx = (int)(wallx * t->width);
+	if (ray.side == 0 && ray.dir.x > 0)
+		tx = t->width - tx - 1;
+	if (ray.side == 1 && ray.dir.y < 0)
+		tx = t->width - tx - 1;
+	return (tx % t->width);
+}
+
+void	draw_wall(mlx_image_t *img, int x, t_raycast ray, mlx_texture_t *t)
+{
+	int			y;
+	t_vector	tpos;
+	t_vector	length;
+	t_color		c;
+
+	length = get_draw_length(ray);
+	tpos.x = get_wall_x(ray, t);
+	y = length.x;
+	while (y < length.y)
 	{
-		y = start.y;
-		while (y < end.y)
-		{
-			mlx_put_pixel(img, x, y, c);
-			y++;
-		}
-		x++;
+		tpos.y = (y - length.x) / (length.y - length.x) * t->height;
+		c = get_tex_color(tpos.x, tpos.y, t);
+		draw_pixel(img, x, y, c);
+		y++;
 	}
 }
 
 void	draw_ray(mlx_image_t *img, int x, t_raycast ray, t_map map)
 {
-	int	line_height;
-	int	draw_start;
-	int	draw_end;
-	int	y;
+	mlx_texture_t	*t;
 
-	(void)map;
-	line_height = SCREEN_HEIGHT / ray.wall_dist;
-	draw_start = ft_highest(-line_height / 2 + SCREEN_HEIGHT / 2, 0);
-	draw_end = ft_lowest(line_height / 2 + SCREEN_HEIGHT / 2, SCREEN_HEIGHT - 1);
-	y = draw_start;
-	while (y < draw_end)
+	if (ray.side == 0)
 	{
-		mlx_put_pixel(img, x, y, 0xFFFFFFFF);
-		y++;
+		if (ray.dir.x > 0)
+			t = map.texture[0];
+		else
+			t = map.texture[1];
 	}
+	else
+	{
+		if (ray.dir.y > 0)
+			t = map.texture[2];
+		else
+			t = map.texture[3];
+	}
+	draw_wall(img, x, ray, t);
 }
 
 void	draw_frame(t_cub3d *cub)

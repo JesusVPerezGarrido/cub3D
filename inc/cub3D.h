@@ -6,7 +6,7 @@
 /*   By: jeperez- <jeperez-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/25 15:09:54 by jeperez-          #+#    #+#             */
-/*   Updated: 2025/05/01 10:28:16 by jeperez-         ###   ########.fr       */
+/*   Updated: 2025/05/02 10:10:14 by jeperez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,4 +55,10 @@ void	cub_start(t_cub3d *cub);
 void	draw_square(mlx_image_t *img, t_vector start, t_vector end, t_color c);
 void	loop_hook(void *param);
 void	draw_frame(t_cub3d *cub);
+
+// draw_utils.c
+void	draw_pixel(mlx_image_t *img, int x, int y, t_color c);
+t_color	get_tex_color(int x, int y, mlx_texture_t *t);
+void	draw_square(mlx_image_t *img, t_vector start, t_vector end, t_color c);
+
 #endif

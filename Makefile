@@ -10,7 +10,8 @@ FILES		:=	main.c \
 				raycast.c \
 				vector.c \
 				color.c \
-				draw.c
+				draw.c \
+				draw_utils.c
 SRCS		:=	$(addprefix src/, $(FILES))
 OBJS		:=	$(addprefix obj/, $(FILES:.c=.o))
 

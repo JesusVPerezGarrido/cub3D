@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   maper.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jeperez- <jeperez-@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: auloth <spotlightcronik@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/30 15:17:59 by auloth            #+#    #+#             */
-/*   Updated: 2025/05/02 12:34:59 by jeperez-         ###   ########.fr       */
+/*   Updated: 2025/05/02 12:52:55 by auloth           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,6 @@ int	valid_player_pos(t_map *map, char c, int x, int y)
 	if (c == 'N' || c == 'S' || c == 'E' || c == 'W')
 	{
 		map->player.pos = set_vector(y + 0.5, x + 0.5);
-		map->map[y][x] = '0';
 		if (c == 'N')
 		{
 			map->player.dir = set_vector(-1, 0);
@@ -81,7 +80,10 @@ int	find_player(t_map *map)
 {
 	int	y;
 	int	x;
+	int pcount;
 
+
+	pcount = 0;
 	y = 0;
 	while (map->map[y])
 	{
@@ -89,10 +91,15 @@ int	find_player(t_map *map)
 		while (map->map[y][x])
 		{
 			if (valid_player_pos(map, map->map[y][x], x, y) == 0)
-				return (0);
+			{
+				map->map[y][x] = '0';
+				pcount++;
+			}
 			x++;
 		}
 		y++;
 	}
+	if(pcount == 1)
+		return(0);
 	return (1);
 }

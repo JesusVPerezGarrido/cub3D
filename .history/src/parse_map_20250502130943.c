@@ -6,7 +6,7 @@
 /*   By: auloth <spotlightcronik@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/30 10:36:58 by jeperez-          #+#    #+#             */
-/*   Updated: 2025/05/02 13:11:35 by auloth           ###   ########.fr       */
+/*   Updated: 2025/05/02 13:09:43 by auloth           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ int unwhanted_chars(char c)
 		if(c != 'N' && c != 'S' && c != 'W' && c != 'E')
 			return(1);
 	}
-	return(0);
+	return
 }
 
 int valid_chars(char **map)
@@ -94,10 +94,9 @@ int	parse_file(t_map *map, char *filepath)
 		line = get_next_line(fd);
 	}
 	if (surrounded_walls(copy_map(map->map)) == 1)
-		return (error(map), ft_printf("Error: Map is not sorrounded\n"), 1);
+		return (error(map), ft_printf("map is not sorrounded\n"), 1);
 	if(find_player(map) == 1)
-		return (error(map), ft_printf("Error: Wrong number of players\n"), 1);
-	if(valid_chars(map->map) == 1)
-		return (error(map), ft_printf("Error: Non valid char\n"), 1);
+		return (error(map), ft_printf("wrong number of players\n"), 1);
+	if(check)
 	return (space_to_wall(map->map), 0);
 }

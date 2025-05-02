@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_map.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: auloth <spotlightcronik@gmail.com>         +#+  +:+       +#+        */
+/*   By: jeperez- <jeperez-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/30 10:36:58 by jeperez-          #+#    #+#             */
-/*   Updated: 2025/05/02 11:22:17 by auloth           ###   ########.fr       */
+/*   Updated: 2025/05/02 14:23:51 by jeperez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ void	clear_map(t_map *map)
 	map->map = NULL;
 	map->player.pos = set_vector(0, 0);
 	map->player.dir = set_vector(0, 0);
+	map->player.plane = set_vector(0, 0);
 }
 
 int	parse_file(t_map *map, char *filepath)

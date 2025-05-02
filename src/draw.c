@@ -6,13 +6,13 @@
 /*   By: jeperez- <jeperez-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/30 13:25:44 by jeperez-          #+#    #+#             */
-/*   Updated: 2025/05/02 10:48:06 by jeperez-         ###   ########.fr       */
+/*   Updated: 2025/05/02 13:57:25 by jeperez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3D.h"
 
-t_vector	get_draw_length(t_raycast ray)
+static t_vector	get_draw_length(t_raycast ray)
 {
 	int			line_height;
 	t_vector	draw;
@@ -23,7 +23,7 @@ t_vector	get_draw_length(t_raycast ray)
 	return (draw);
 }
 
-double	get_wall_x(t_raycast ray, mlx_texture_t *t)
+static double	get_wall_x(t_raycast ray, mlx_texture_t *t)
 {
 	double	wallx;
 	int		tx;
@@ -41,7 +41,7 @@ double	get_wall_x(t_raycast ray, mlx_texture_t *t)
 	return (tx % t->width);
 }
 
-void	draw_wall(mlx_image_t *img, int x, t_raycast ray, mlx_texture_t *t)
+static void	draw_wall(mlx_image_t *img, int x, t_raycast ray, mlx_texture_t *t)
 {
 	int			y;
 	t_vector	tpos;
@@ -60,7 +60,7 @@ void	draw_wall(mlx_image_t *img, int x, t_raycast ray, mlx_texture_t *t)
 	}
 }
 
-void	draw_ray(mlx_image_t *img, int x, t_raycast ray, t_map map)
+static void	draw_ray(mlx_image_t *img, int x, t_raycast ray, t_map map)
 {
 	mlx_texture_t	*t;
 

@@ -6,13 +6,13 @@
 /*   By: jeperez- <jeperez-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/28 11:25:09 by jeperez-          #+#    #+#             */
-/*   Updated: 2025/05/02 12:39:40 by jeperez-         ###   ########.fr       */
+/*   Updated: 2025/05/02 13:56:32 by jeperez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3D.h"
 
-void	check_args(int ac, char **av)
+static void	check_args(int ac, char **av)
 {
 	char	*extension;
 

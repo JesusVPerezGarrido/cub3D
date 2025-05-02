@@ -1,0 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   test_functions.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: auloth <spotlightcronik@gmail.com>         +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/05/01 10:32:28 by auloth            #+#    #+#             */
+/*   Updated: 2025/05/01 10:34:11 by auloth           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "parse.h"
+
+void print_map(t_map* map)
+{
+	ft_printf("ceiling color: ", map->ceil);
+	ft_printf("floor color: ", map->floor);
+	ft_printf("ceiling color: ", map.);
+}

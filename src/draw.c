@@ -6,7 +6,7 @@
 /*   By: jeperez- <jeperez-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/30 13:25:44 by jeperez-          #+#    #+#             */
-/*   Updated: 2025/05/02 10:10:20 by jeperez-         ###   ########.fr       */
+/*   Updated: 2025/05/02 10:48:06 by jeperez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,8 +50,8 @@ void	draw_wall(mlx_image_t *img, int x, t_raycast ray, mlx_texture_t *t)
 
 	length = get_draw_length(ray);
 	tpos.x = get_wall_x(ray, t);
-	y = length.x;
-	while (y < length.y)
+	y = ft_highest(length.x, 0);
+	while (y < ft_lowest(length.y, SCREEN_HEIGHT - 1))
 	{
 		tpos.y = (y - length.x) / (length.y - length.x) * t->height;
 		c = get_tex_color(tpos.x, tpos.y, t);

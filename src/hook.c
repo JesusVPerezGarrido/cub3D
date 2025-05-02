@@ -6,7 +6,7 @@
 /*   By: jeperez- <jeperez-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/30 13:38:01 by jeperez-          #+#    #+#             */
-/*   Updated: 2025/05/02 10:18:14 by jeperez-         ###   ########.fr       */
+/*   Updated: 2025/05/02 10:52:56 by jeperez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,7 @@ static void	move_player_x(t_cub3d *cub, t_vector mv_dir)
 	}
 	else if (mv_dir.x < 0)
 	{
+		new_pos = *p_pos;
 		new_pos.x -= (MV_SPD / (fabs(mv_dir.x) + fabs(mv_dir.y))) * p_dir->x;
 		new_pos.y -= (MV_SPD / (fabs(mv_dir.x) + fabs(mv_dir.y))) * p_dir->y;
 		if (cub->map.map[(int)new_pos.x][(int)new_pos.y] == '0')
@@ -99,6 +100,8 @@ static void	key_handler(t_cub3d *cub)
 
 	move_dir = set_vector(0, 0);
 	turn_dir = 0;
+	if (mlx_is_key_down(cub->mlx, MLX_KEY_ESCAPE))
+		exit(1);
 	if (mlx_is_key_down(cub->mlx, MLX_KEY_W))
 		move_dir.x += 1;
 	if (mlx_is_key_down(cub->mlx, MLX_KEY_S))

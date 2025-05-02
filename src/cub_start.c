@@ -6,7 +6,7 @@
 /*   By: jeperez- <jeperez-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/30 13:14:37 by jeperez-          #+#    #+#             */
-/*   Updated: 2025/05/01 10:22:03 by jeperez-         ###   ########.fr       */
+/*   Updated: 2025/05/02 10:24:11 by jeperez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,8 @@ void	create_background(t_cub3d *cub)
 
 void	mlx_start(t_cub3d *cub)
 {
-	cub->mlx = mlx_init(SCREEN_WIDTH, SCREEN_HEIGHT, "cub3D", false);
+	mlx_set_setting(MLX_STRETCH_IMAGE, 1);
+	cub->mlx = mlx_init(SCREEN_WIDTH, SCREEN_HEIGHT, "cub3D", true);
 	if (!cub->mlx)
 	{
 		ft_printf("mlx error\n");

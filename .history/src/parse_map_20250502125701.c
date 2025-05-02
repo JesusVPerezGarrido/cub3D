@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_map.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jeperez- <jeperez-@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: auloth <spotlightcronik@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/30 10:36:58 by jeperez-          #+#    #+#             */
-/*   Updated: 2025/05/02 15:52:13 by jeperez-         ###   ########.fr       */
+/*   Updated: 2025/05/02 12:57:01 by auloth           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,67 +41,6 @@ void	clear_map(t_map *map)
 	map->map = NULL;
 	map->player.pos = set_vector(0, 0);
 	map->player.dir = set_vector(0, 0);
-	map->player.plane = set_vector(0, 0);
-}
-
-int unwhanted_chars(char c)
-{
-	if(c != ' ' && c != '1' && c != '0')
-	{
-		if(c != 'N' && c != 'S' && c != 'W' && c != 'E')
-			return(1);
-	}
-	return(0);
-}
-
-int valid_chars(char **map)
-{
-	int x;
-	int y;
-
-	y = 0;
-	while(map[y])
-	{
-		x = 0;
-		while (map[y][x])
-		{
-			if(unwhanted_chars(map[y][x]) == 1)
-				return(1);
-			x++;
-		}
-		y++;
-	}
-	return(0);
-}
-
-int unwhanted_chars(char c)
-{
-	if(c != ' ' && c != '1' && c != '0')
-	{
-		if(c != 'N' && c != 'S' && c != 'W' && c != 'E')
-			return(1);
-	}
-	return(0);
-}
-
-int valid_chars(char **map)
-{
-	int x;
-	int y;
-
-	y = 0;
-	while(map[y])
-	{
-		x = 0;
-		while (map[y][x])
-		{
-			if(unwhanted_chars(map[y][x]) == 1)
-				return(1);
-			x++;
-		}
-		y++;
-	}
-	return(0);
 }
 
 int	parse_file(t_map *map, char *filepath)
@@ -125,10 +64,9 @@ int	parse_file(t_map *map, char *filepath)
 		line = get_next_line(fd);
 	}
 	if (surrounded_walls(copy_map(map->map)) == 1)
-		return (error(map), ft_printf("Error: Map is not sorrounded\n"), 1);
+		return (error(map), ft_printf("map is not sorrounded\n"), 1);
 	if(find_player(map) == 1)
-		return (error(map), ft_printf("Error: Wrong number of players\n"), 1);
-	if(valid_chars(map->map) == 1)
-		return (error(map), ft_printf("Error: Non valid char\n"), 1);
-	return (space_to_wall(map->map), 0);
+	return (error(map), ft_printf("map is not sorrounded\n"), 1);
+	space_to_wall(map->map);
+	return (0);
 }

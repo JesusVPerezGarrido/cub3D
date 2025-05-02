@@ -6,7 +6,7 @@
 /*   By: jeperez- <jeperez-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/28 11:25:09 by jeperez-          #+#    #+#             */
-/*   Updated: 2025/04/30 11:43:05 by jeperez-         ###   ########.fr       */
+/*   Updated: 2025/05/02 12:39:40 by jeperez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,5 +45,6 @@ int	main(int ac, char **av)
 	t_cub3d	cub;
 
 	check_args(ac, av);
-	parse_file(&cub.map, av[1]);
+	if (parse_file(&cub.map, av[1]) == 0)
+		cub_start(&cub);
 }

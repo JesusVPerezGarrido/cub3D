@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   maper.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: auloth <spotlightcronik@gmail.com>         +#+  +:+       +#+        */
+/*   By: jeperez- <jeperez-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/30 15:17:59 by auloth            #+#    #+#             */
-/*   Updated: 2025/05/02 11:28:36 by auloth           ###   ########.fr       */
+/*   Updated: 2025/05/02 12:34:59 by jeperez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,31 +49,32 @@ int	line_maper(t_map *map, char *line)
 
 int	valid_player_pos(t_map *map, char c, int x, int y)
 {
-	if (c == 'N')
+	if (c == 'N' || c == 'S' || c == 'E' || c == 'W')
 	{
-		map->player.pos = set_vector(x, y);
-		map->player.dir = set_vector(0, -1);
-		return (0);
+		map->player.pos = set_vector(y + 0.5, x + 0.5);
+		map->map[y][x] = '0';
+		if (c == 'N')
+		{
+			map->player.dir = set_vector(-1, 0);
+			map->player.plane = set_vector(0, 0.66);
+		}
+		if (c == 'S')
+		{
+			map->player.dir = set_vector(1, 0);
+			map->player.plane = set_vector(0, -0.66);
+		}
+		if (c == 'W')
+		{
+			map->player.dir = set_vector(0, -1);
+			map->player.plane = set_vector(-0.66, 0);
+		}
+		if (c == 'E')
+		{
+			map->player.dir = set_vector(0, 1);
+			map->player.plane = set_vector(0.66, 0);
+		}
 	}
-	if (c == 'S')
-	{
-		map->player.pos = set_vector(x, y);
-		map->player.dir = set_vector(0, 1);
-		return (0);
-	}
-	if (c == 'W')
-	{
-		map->player.pos = set_vector(x, y);
-		map->player.dir = set_vector(-1, 0);
-		return (0);
-	}
-	if (c == 'E')
-	{
-		map->player.pos = set_vector(x, y);
-		map->player.dir = set_vector(1, 0);
-		return (0);
-	}
-	return (1);
+	return (!(c == 'N' || c == 'S' || c == 'E' || c == 'W'));
 }
 
 int	find_player(t_map *map)

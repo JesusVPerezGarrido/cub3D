@@ -6,7 +6,7 @@
 /*   By: jeperez- <jeperez-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/02 10:07:29 by jeperez-          #+#    #+#             */
-/*   Updated: 2025/05/02 10:09:40 by jeperez-         ###   ########.fr       */
+/*   Updated: 2025/05/02 10:17:36 by jeperez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,13 +25,13 @@ t_color	get_tex_color(int x, int y, mlx_texture_t *t)
 	int		pos;
 	int		i;
 
-	if ( x < 0 || y < 0 || x > (int)t->width - 1 || y > (int)t->height - 1)
+	if (x < 0 || y < 0 || x > (int)t->width - 1 || y > (int)t->height - 1)
 		return (0);
 	pos = (t->width * y + x) * t->bytes_per_pixel;
 	c = 0;
 	i = 0;
 	while (i < t->bytes_per_pixel)
-	{	
+	{
 		c = c << 8;
 		c += t->pixels[pos + i];
 		i++;

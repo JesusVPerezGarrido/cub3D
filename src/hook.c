@@ -6,7 +6,7 @@
 /*   By: jeperez- <jeperez-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/30 13:38:01 by jeperez-          #+#    #+#             */
-/*   Updated: 2025/05/01 10:30:02 by jeperez-         ###   ########.fr       */
+/*   Updated: 2025/05/02 10:18:14 by jeperez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,8 +56,8 @@ static void	move_player_x(t_cub3d *cub, t_vector mv_dir)
 	}
 	else if (mv_dir.x < 0)
 	{
-		new_pos.x = p_pos->x - (MV_SPD / (fabs(mv_dir.x) + fabs(mv_dir.y))) * p_dir->x;
-		new_pos.y = p_pos->y - (MV_SPD / (fabs(mv_dir.x) + fabs(mv_dir.y))) * p_dir->y;
+		new_pos.x -= (MV_SPD / (fabs(mv_dir.x) + fabs(mv_dir.y))) * p_dir->x;
+		new_pos.y -= (MV_SPD / (fabs(mv_dir.x) + fabs(mv_dir.y))) * p_dir->y;
 		if (cub->map.map[(int)new_pos.x][(int)new_pos.y] == '0')
 		{
 			*p_pos = new_pos;

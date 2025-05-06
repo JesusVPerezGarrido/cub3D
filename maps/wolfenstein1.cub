@@ -1,10 +1,11 @@
-NO ./textures/orange_cat.png
-SO ./textures/wall2.png
-WE ./textures/wall3.png
-EA ./textures/wall4.png
 
-F 200,200,000200
-C 100,100,100
+NO ./textures/cobblestone.png
+SO ./textures/cobblestone.png
+WE ./textures/cobblestone.png
+EA ./textures/cobblestone.png
+
+F 200,200,200
+C 100,100,255
 
                              1111111111111
      111111                  1000000000001

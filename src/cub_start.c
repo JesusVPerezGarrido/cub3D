@@ -6,7 +6,7 @@
 /*   By: jeperez- <jeperez-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/30 13:14:37 by jeperez-          #+#    #+#             */
-/*   Updated: 2025/05/06 15:55:57 by jeperez-         ###   ########.fr       */
+/*   Updated: 2025/05/06 16:01:42 by jeperez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,5 +74,4 @@ void	cub_start(t_cub3d *cub)
 	mlx_start(cub);
 	mlx_loop(cub->mlx);
 	clean(cub);
-	exit(0);
 }

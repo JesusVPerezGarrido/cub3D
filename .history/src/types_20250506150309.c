@@ -6,7 +6,7 @@
 /*   By: auloth <spotlightcronik@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/30 12:54:16 by auloth            #+#    #+#             */
-/*   Updated: 2025/05/06 15:03:10 by auloth           ###   ########.fr       */
+/*   Updated: 2025/05/06 15:03:09 by auloth           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ int	set_type(t_map *map, char **l, char *line)
 	if (ft_strcmp(l[0], "EA") == 0 && map->texture[3] == NULL)
 		return (map->texture[3] = mlx_load_png(l[1]), free_matrix((void **)l),
 			0);
-	if (ft_strcmp(l[0], "F") == 0 && map->floor == 0)
+	if (ft_strcmp(l[0], "F ") == 0 && map->floor == 0)
 		return (map->floor = co_split(ft_split(l[1], ',')),
 			free_matrix((void **)l), 0);
 	if (ft_strcmp(l[0], "C") == 0 && map->ceil == 0)

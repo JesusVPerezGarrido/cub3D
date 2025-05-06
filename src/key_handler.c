@@ -6,7 +6,7 @@
 /*   By: jeperez- <jeperez-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/02 15:48:06 by jeperez-          #+#    #+#             */
-/*   Updated: 2025/05/02 15:48:23 by jeperez-         ###   ########.fr       */
+/*   Updated: 2025/05/06 11:22:08 by jeperez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,25 +35,19 @@ static void	move_player_y(t_cub3d *cub, t_vector mv_dir)
 	t_vector	new_pos;
 	double		dist;
 
-	dist = cub->mlx->delta_time * MV_SPD;
+	if (!mv_dir.y)
+		return ;
+	dist = cub->mlx->delta_time * MV_SPD / (fabs(mv_dir.x) + fabs(mv_dir.y));
 	p_pos = &cub->map.player.pos;
 	p_dir = &cub->map.player.dir;
-	if (mv_dir.y < 0)
-	{
-		new_pos = *p_pos;
-		new_pos.x -= (dist / (fabs(mv_dir.x) + fabs(mv_dir.y))) * p_dir->y;
-		new_pos.y += (dist / (fabs(mv_dir.x) + fabs(mv_dir.y))) * p_dir->x;
-		if (check_wall(*p_pos, new_pos, cub->map) == 1)
-			*p_pos = new_pos;
-	}
-	else if (mv_dir.y > 0)
-	{
-		new_pos = *p_pos;
-		new_pos.x += (dist / (fabs(mv_dir.x) + fabs(mv_dir.y))) * p_dir->y;
-		new_pos.y -= (dist / (fabs(mv_dir.x) + fabs(mv_dir.y))) * p_dir->x;
-		if (check_wall(*p_pos, new_pos, cub->map) == 1)
-			*p_pos = new_pos;
-	}
+	new_pos = *p_pos;
+	new_pos.x += mv_dir.y * dist * p_dir->y;
+	if (check_wall(*p_pos, new_pos, cub->map) == 1)
+		*p_pos = new_pos;
+	new_pos = *p_pos;
+	new_pos.y += -mv_dir.y * dist * p_dir->x;
+	if (check_wall(*p_pos, new_pos, cub->map) == 1)
+		*p_pos = new_pos;
 }
 
 static void	move_player_x(t_cub3d *cub, t_vector mv_dir)
@@ -63,25 +57,19 @@ static void	move_player_x(t_cub3d *cub, t_vector mv_dir)
 	t_vector	new_pos;
 	double		dist;
 
-	dist = cub->mlx->delta_time * MV_SPD;
+	if (!mv_dir.x)
+		return ;
+	dist = cub->mlx->delta_time * MV_SPD / (fabs(mv_dir.x) + fabs(mv_dir.y));
 	p_pos = &cub->map.player.pos;
 	p_dir = &cub->map.player.dir;
-	if (mv_dir.x > 0)
-	{
-		new_pos = *p_pos;
-		new_pos.x += (dist / (fabs(mv_dir.x) + fabs(mv_dir.y))) * p_dir->x;
-		new_pos.y += (dist / (fabs(mv_dir.x) + fabs(mv_dir.y))) * p_dir->y;
-		if (check_wall(*p_pos, new_pos, cub->map) == 1)
-			*p_pos = new_pos;
-	}
-	else if (mv_dir.x < 0)
-	{
-		new_pos = *p_pos;
-		new_pos.x -= (dist / (fabs(mv_dir.x) + fabs(mv_dir.y))) * p_dir->x;
-		new_pos.y -= (dist / (fabs(mv_dir.x) + fabs(mv_dir.y))) * p_dir->y;
-		if (check_wall(*p_pos, new_pos, cub->map) == 1)
-			*p_pos = new_pos;
-	}
+	new_pos = *p_pos;
+	new_pos.x += mv_dir.x * dist * p_dir->x;
+	if (check_wall(*p_pos, new_pos, cub->map) == 1)
+		*p_pos = new_pos;
+	new_pos = *p_pos;
+	new_pos.y += mv_dir.x * dist * p_dir->y;
+	if (check_wall(*p_pos, new_pos, cub->map) == 1)
+		*p_pos = new_pos;
 }
 
 static void	turn_player(t_cub3d *cub, int tn_dir)

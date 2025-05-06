@@ -6,7 +6,7 @@
 /*   By: auloth <spotlightcronik@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/30 13:47:59 by auloth            #+#    #+#             */
-/*   Updated: 2025/05/06 14:29:03 by auloth           ###   ########.fr       */
+/*   Updated: 2025/05/06 14:21:13 by auloth           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,10 @@ t_color	co_split(char **color)
 
 	count = 0;
 	count2 = 0;
-	if(!color || !color[0])
-		return(0);
 	while (color[count] != NULL)
 		count++;
 	if (count != 3 || check_digits(color) == 1)
-		return (free_matrix((void **)color),0);
+		return (free,0);
 	_r = atoi(color[0]);
 	_g = atoi(color[1]);
 	_b = atoi(color[2]);

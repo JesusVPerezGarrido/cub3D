@@ -6,7 +6,7 @@
 /*   By: auloth <spotlightcronik@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/12 12:22:44 by jeperez-          #+#    #+#             */
-/*   Updated: 2025/05/06 14:24:50 by auloth           ###   ########.fr       */
+/*   Updated: 2025/05/06 14:24:37 by auloth           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,8 +86,7 @@ char	**ft_split(char const *s, char c)
 	char	**value;
 	int		size;
 
-	if(!s)
-		return(NULL);
+	if()
 	size = split_count(s, c);
 	value = ft_calloc(sizeof(char *), size + 1);
 	if (!value)

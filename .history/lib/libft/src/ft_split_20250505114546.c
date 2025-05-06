@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: auloth <spotlightcronik@gmail.com>         +#+  +:+       +#+        */
+/*   By: jeperez- <jeperez-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/12 12:22:44 by jeperez-          #+#    #+#             */
-/*   Updated: 2025/05/06 14:24:50 by auloth           ###   ########.fr       */
+/*   Updated: 2024/09/18 15:35:05 by jeperez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,8 +86,6 @@ char	**ft_split(char const *s, char c)
 	char	**value;
 	int		size;
 
-	if(!s)
-		return(NULL);
 	size = split_count(s, c);
 	value = ft_calloc(sizeof(char *), size + 1);
 	if (!value)

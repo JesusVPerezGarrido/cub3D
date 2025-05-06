@@ -6,7 +6,7 @@
 /*   By: auloth <spotlightcronik@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/30 12:54:16 by auloth            #+#    #+#             */
-/*   Updated: 2025/05/06 14:35:23 by auloth           ###   ########.fr       */
+/*   Updated: 2025/05/06 14:35:04 by auloth           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,19 +68,19 @@ int	set_type(t_map *map, char **l, char *line)
 	if (ft_strcmp(l[0], "NO") == 0 && map->texture[0] == NULL)
 		return (map->texture[0] = mlx_load_png(l[1]), free_matrix((void **)l),
 			0);
-	if (ft_strcmp(l[0], "SO") == 0 && map->texture[1] == NULL)
+	if (ft_strcmp(l[0], "SO", 2) == 0 && map->texture[1] == NULL)
 		return (map->texture[1] = mlx_load_png(l[1]), free_matrix((void **)l),
 			0);
-	if (ft_strcmp(l[0], "WE") == 0 && map->texture[2] == NULL)
+	if (ft_strcmp(l[0], "WE", 2) == 0 && map->texture[2] == NULL)
 		return (map->texture[2] = mlx_load_png(l[1]), free_matrix((void **)l),
 			0);
-	if (ft_strcmp(l[0], "EA") == 0 && map->texture[3] == NULL)
+	if (ft_strncmp(l[0], "EA", 2) == 0 && map->texture[3] == NULL)
 		return (map->texture[3] = mlx_load_png(l[1]), free_matrix((void **)l),
 			0);
-	if (ft_strcmp(l[0], "F ") == 0 && map->floor == 0)
+	if (ft_strncmp(l[0], "F ", 1) == 0 && map->floor == 0)
 		return (map->floor = co_split(ft_split(l[1], ',')),
 			free_matrix((void **)l), 0);
-	if (ft_strcmp(l[0], "C ") == 0 && map->ceil == 0)
+	if (ft_strncmp(l[0], "C ", 1) == 0 && map->ceil == 0)
 		return (map->ceil = co_split(ft_split(l[1], ',')),
 			free_matrix((void **)l), 0);
 	return (ft_printf("Error: invalid texture/color format\n"),

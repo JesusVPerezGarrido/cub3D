@@ -6,7 +6,7 @@
 /*   By: jeperez- <jeperez-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/02 15:48:06 by jeperez-          #+#    #+#             */
-/*   Updated: 2025/05/06 11:22:08 by jeperez-         ###   ########.fr       */
+/*   Updated: 2025/05/06 15:59:04 by jeperez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,7 +109,7 @@ void	key_handler(t_cub3d *cub)
 	move_dir = set_vector(0, 0);
 	turn_dir = 0;
 	if (mlx_is_key_down(cub->mlx, MLX_KEY_ESCAPE))
-		exit(1);
+		mlx_close_window(cub->mlx);
 	if (mlx_is_key_down(cub->mlx, MLX_KEY_W))
 		move_dir.x += 1;
 	if (mlx_is_key_down(cub->mlx, MLX_KEY_S))

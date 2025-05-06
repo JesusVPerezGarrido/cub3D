@@ -6,7 +6,7 @@
 /*   By: jeperez- <jeperez-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/11 12:24:16 by jeperez-          #+#    #+#             */
-/*   Updated: 2025/04/30 16:23:21 by jeperez-         ###   ########.fr       */
+/*   Updated: 2025/05/06 15:46:45 by jeperez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ t_raycast	raycast_init(t_vector init_pos, t_vector direction)
 
 	value.pos = init_pos;
 	value.dir = direction;
-	value.delta_dist = set_vector(fabs(1 / value.dir.x), fabs(1 / direction.y));
+	value.delta_dist = set_vector(fabs(1 / value.dir.x), fabs(1 / value.dir.y));
 	raycast_init_direction(&value);
 	value.hit = 0;
 	value.side = -1;

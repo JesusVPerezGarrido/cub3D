@@ -6,7 +6,7 @@
 /*   By: jeperez- <jeperez-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/30 13:25:44 by jeperez-          #+#    #+#             */
-/*   Updated: 2025/05/02 13:57:25 by jeperez-         ###   ########.fr       */
+/*   Updated: 2025/05/06 15:55:39 by jeperez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static t_vector	get_draw_length(t_raycast ray)
 	return (draw);
 }
 
-static double	get_wall_x(t_raycast ray, mlx_texture_t *t)
+static int	get_wall_x(t_raycast ray, mlx_texture_t *t)
 {
 	double	wallx;
 	int		tx;
@@ -33,12 +33,14 @@ static double	get_wall_x(t_raycast ray, mlx_texture_t *t)
 	else
 		wallx = ray.pos.x + ray.wall_dist * ray.dir.x;
 	wallx -= (int)wallx;
+	if (wallx < 0)
+		wallx = 1 + wallx;
 	tx = (int)(wallx * t->width);
 	if (ray.side == 0 && ray.dir.x > 0)
 		tx = t->width - tx - 1;
 	if (ray.side == 1 && ray.dir.y < 0)
 		tx = t->width - tx - 1;
-	return (tx % t->width);
+	return (tx);
 }
 
 static void	draw_wall(mlx_image_t *img, int x, t_raycast ray, mlx_texture_t *t)

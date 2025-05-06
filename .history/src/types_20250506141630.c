@@ -6,7 +6,7 @@
 /*   By: auloth <spotlightcronik@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/30 12:54:16 by auloth            #+#    #+#             */
-/*   Updated: 2025/05/06 14:16:53 by auloth           ###   ########.fr       */
+/*   Updated: 2025/05/06 14:16:30 by auloth           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,6 @@ int	empty_line(char *line)
 	}
 	return (1);
 }
-
 int	compare(char **l)
 {
 	if (ft_strncmp(l[0], "NO", 2) == 0)

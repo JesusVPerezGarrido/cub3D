@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_map.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: auloth <spotlightcronik@gmail.com>         +#+  +:+       +#+        */
+/*   By: jeperez- <jeperez-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/30 10:36:58 by jeperez-          #+#    #+#             */
-/*   Updated: 2025/05/06 11:51:47 by auloth           ###   ########.fr       */
+/*   Updated: 2025/05/02 15:56:29 by jeperez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,7 @@ void	error(t_map *map)
 			mlx_delete_texture(map->texture[i]);
 		i++;
 	}
-	if (map->map)
-		free_matrix((void **)map->map);
+	free_matrix((void **)map->map);
 }
 
 void	clear_map(t_map *map)

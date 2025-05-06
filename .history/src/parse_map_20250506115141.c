@@ -6,7 +6,7 @@
 /*   By: auloth <spotlightcronik@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/30 10:36:58 by jeperez-          #+#    #+#             */
-/*   Updated: 2025/05/06 11:51:47 by auloth           ###   ########.fr       */
+/*   Updated: 2025/05/06 11:51:41 by auloth           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	error(t_map *map)
 		i++;
 	}
 	if (map->map)
-		free_matrix((void **)map->map);
+	free_matrix((void **)map->map);
 }
 
 void	clear_map(t_map *map)

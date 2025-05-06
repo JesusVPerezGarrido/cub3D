@@ -6,7 +6,7 @@
 /*   By: auloth <spotlightcronik@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/30 12:54:16 by auloth            #+#    #+#             */
-/*   Updated: 2025/05/06 11:55:02 by auloth           ###   ########.fr       */
+/*   Updated: 2025/05/06 11:54:32 by auloth           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,8 +80,8 @@ int	set_type(t_map *map, char **l, char *line)
 	if (ft_strncmp(l[0], "C ", 1) == 0 && map->ceil == 0)
 		return (map->ceil = co_split(ft_split(l[1], ',')),
 			free_matrix((void **)l), 0);
-	return (ft_printf("Error: invalid texture/color format\n"),
-		free_matrix((void **)l), 1);
+	return (ft_printf("Error: invalid texture format"), free_matrix((void **)l),
+		1);
 }
 
 int	parse_line(t_map *map, char *line)
